@@ -42,7 +42,9 @@ router.get('/:pid', (req, res, next) => {
     return p.id === placeId;
   })
   if(!place){
-    return res.status(404).json({message:'Could not find a place for the provided id!'})
+    const error = new Error('Could not find a place for the provided id!');
+    error.code = 404;
+    throw error;                                     //--------> keep in mind this will only work for synchronous, NOT for async !                                                                 
   }
   res.json({place});                             //------> {place: place} => {place}
 });
