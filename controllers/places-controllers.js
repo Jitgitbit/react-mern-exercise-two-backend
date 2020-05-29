@@ -68,6 +68,16 @@ const createPlace = (req, res, next) => {
   res.status(201).json({place: createdPlace});
 };
 
+const updatePlace = (req, res, next) => {
+  const {title, description} = req.body;             //-------> good object destructuring !
+  const placeId = req.params.pid;
+  const updatedPlace = { ...DUMMY_PLACES.find(p => p.id === placeId)};      //----> clever use of the spread operator !
+};
+
+const deletePlace = (req, res, next) => {};
+
 exports.getPlaceById = getPlaceById;
 exports.getPlaceByUserId = getPlaceByUserId;
 exports.createPlace = createPlace;
+exports.updatePlace = updatePlace;
+exports.deletePlace = deletePlace;
