@@ -55,9 +55,9 @@ router.get('/user/:uid', (req, res, next) => {
     return p.creator === userId;
   })
   if(!place){
-    const error = new Error('Could not find a place for the provided id!');
+    const error = new Error('Could not find a place for the provided user id!');
     error.code = 404;
-    next(error);                                        // needed to use next() for async !!!
+    return next(error);                                        // needed to use next() for async !!!
   }
   res.json({place});                             //------> {place: place} => {place}
 });
