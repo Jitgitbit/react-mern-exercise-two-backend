@@ -16,4 +16,6 @@ router.get('/:pid', placesControllers.getPlaceById);
                                                        //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
 router.get('/user/:uid', placesControllers.getPlaceByUserId);
 
+router.post('/', placesControllers.createPlace);
+
 module.exports = router;
