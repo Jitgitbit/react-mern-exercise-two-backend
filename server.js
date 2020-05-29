@@ -6,6 +6,6 @@ const placesRoutes = require('./routes/places-routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(placesRoutes);
+app.use('/api/places', placesRoutes);
 
 app.listen(port, () => console.log(`Listening on: ${port}, endpoint /testing is supported!`));  // start Node + Express server on port 5000
