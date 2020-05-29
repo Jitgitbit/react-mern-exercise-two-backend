@@ -72,6 +72,12 @@ const updatePlace = (req, res, next) => {
   const {title, description} = req.body;             //-------> good object destructuring !
   const placeId = req.params.pid;
   const updatedPlace = { ...DUMMY_PLACES.find(p => p.id === placeId)};      //----> clever use of the spread operator !
+  const placeIndex = DUMMY_PLACES.findIndex(p => p.id === placeId);
+
+  updatedPlace.title = title;
+  updatedPlace.description = description;
+
+  DUMMY_PLACES[placeIndex] = updatedPlace;    
 };
 
 const deletePlace = (req, res, next) => {};
