@@ -41,6 +41,9 @@ router.get('/:pid', (req, res, next) => {
   const place = DUMMY_PLACES.find(p => {
     return p.id === placeId;
   })
+  if(!place){
+    return res.status(404).json({message:'Could not find a place for the provided id!'})
+  }
   res.json({place});                             //------> {place: place} => {place}
 });
                                                        //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
@@ -49,6 +52,9 @@ router.get('/user/:uid', (req, res, next) => {
   const place = DUMMY_PLACES.find(p => {
     return p.creator === userId;
   })
+  if(!place){
+    return res.status(404).json({message:'Could not find a place for the provided user id!'})
+  }
   res.json({place});                             //------> {place: place} => {place}
 });
 
