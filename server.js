@@ -6,6 +6,8 @@ const placesRoutes = require('./routes/places-routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(bodyParser.json());
+                                         //------> the sequence of ANY middleWare is of major importance !!! They will be parsed from top to bottom !!!
 app.use('/api/places', placesRoutes);
 
 app.use((error, req, res, next) => {
