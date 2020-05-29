@@ -50,6 +50,14 @@ const getPlaceByUserId = (req, res, next) => {
 const createPlace = (req, res, next) => {
   const {title, description, creator, coordinates, address} = req.body;             //-------> good object destructuring !
   // above is short for doing:  const title = req.body.title , etc for each property !
+
+  const createdPlace = {
+    title,
+    description,
+    location: coordinates,                         //-------> nice object literal !
+    address,
+    creator
+  };
 };
 
 exports.getPlaceById = getPlaceById;
