@@ -41,7 +41,7 @@ router.get('/:pid', (req, res, next) => {
   const place = DUMMY_PLACES.find(p => {
     return p.id === placeId;
   })
-  res.json({place: place});                             
+  res.json({place});                             //------> {place: place} => {place}
 });
 
 module.exports = router;
