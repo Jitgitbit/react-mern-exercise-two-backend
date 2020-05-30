@@ -1,26 +1,33 @@
-const express = require('express');
-const {check} = require('express-validator');
+const express = require("express");
+const { check } = require("express-validator");
 
-const placesControllers = require('../controllers/places-controllers');
+const placesControllers = require("../controllers/places-controllers");
 
 const router = express.Router();
 
-
-router.get('/testing', (req, res, next) => {
-  console.log('GET request in Places, endpoint /testing');
-  res.json({                                                       //---> technically this is now actually a middleware fn !
-    message: '----> It works!'
-  })
+router.get("/testing", (req, res, next) => {
+  console.log("GET request in Places, endpoint /testing");
+  res.json({
+    message: "----> It works!",
+  });
 });
 
-router.get('/:pid', placesControllers.getPlaceById);
-                                                       //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
-router.get('/user/:uid', placesControllers.getPlacesByUserId);
+router.get("/:pid", placesControllers.getPlaceById);             //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
 
-router.post('/', check('title').not().isEmpty(), placesControllers.createPlace);  //---> english: we check that the 'title' is not empty
+router.get("/user/:uid", placesControllers.getPlacesByUserId);
 
-router.patch('/:pid', placesControllers.updatePlace);
+router.post(
+  "/",
+  [
+    check("title").not().isEmpty(),                //---> english: we check that the 'title' is not empty
+    check("description").isLength({ min: 5 }),
+    check("address").not().isEmpty(),
+  ],
+  placesControllers.createPlace
+);
 
-router.delete('/:pid', placesControllers.deletePlace);
+router.patch("/:pid", placesControllers.updatePlace);
+
+router.delete("/:pid", placesControllers.deletePlace);
 
 module.exports = router;
