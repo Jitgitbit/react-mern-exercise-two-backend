@@ -14,7 +14,7 @@ router.get('/testing', (req, res, next) => {
 
 router.get('/:pid', placesControllers.getPlaceById);
                                                        //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
-router.get('/user/:uid', placesControllers.getPlaceByUserId);
+router.get('/user/:uid', placesControllers.getPlacesByUserId);
 
 router.post('/', placesControllers.createPlace);
 
