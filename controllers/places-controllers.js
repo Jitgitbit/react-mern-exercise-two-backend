@@ -1,4 +1,5 @@
 const {uuid} = require('uuidv4');
+const { validationResult } = require("express-validator");
 
 const HttpError = require('../models/http-error');
 
@@ -51,6 +52,12 @@ const getPlacesByUserId = (req, res, next) => {
 };
 
 const createPlace = (req, res, next) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()){
+    console.log(errors);
+    throw new HttpError('Invalid inputs given, please check your data!', 422)
+  }
+
   const {title, description, creator, coordinates, address} = req.body;             //-------> good object destructuring !
   // above is short for doing:  const title = req.body.title , etc for each property !
 
