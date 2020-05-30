@@ -12,21 +12,28 @@ router.get("/testing", (req, res, next) => {
   });
 });
 
-router.get("/:pid", placesControllers.getPlaceById);             //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
+router.get("/:pid", placesControllers.getPlaceById); //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
 
 router.get("/user/:uid", placesControllers.getPlacesByUserId);
 
 router.post(
   "/",
   [
-    check("title").not().isEmpty(),                //---> english: we check that the 'title' is not empty
+    check("title").not().isEmpty(),                 //---> english: we check that the 'title' is not empty
     check("description").isLength({ min: 5 }),
     check("address").not().isEmpty(),
   ],
   placesControllers.createPlace
 );
 
-router.patch("/:pid", placesControllers.updatePlace);
+router.patch(
+  "/:pid",
+  [
+    check("title").not().isEmpty(), 
+    check("description").isLength({ min: 5 }),
+  ],
+  placesControllers.updatePlace
+);
 
 router.delete("/:pid", placesControllers.deletePlace);
 

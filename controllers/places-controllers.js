@@ -76,6 +76,10 @@ const createPlace = (req, res, next) => {
 };
 
 const updatePlace = (req, res, next) => {
+  const errors = validationResult(req);
+  if(!errors.isEmpty()){
+    throw new HttpError('Invalid inputs given, please check your data!', 422)
+  }
   const {title, description} = req.body;             //-------> good object destructuring !
   const placeId = req.params.pid;
   const updatedPlace = { ...DUMMY_PLACES.find(p => p.id === placeId)};      //----> clever use of the spread operator !
