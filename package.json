@@ -18,10 +18,10 @@
   },
   "homepage": "https://github.com/Jitgitbit/react-mern-exercise-two-backend#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-validator": "^6.5.0",
-    "uuid": "^8.1.0",
     "uuidv4": "^6.1.0",
     "validator": "^13.0.0"
   },

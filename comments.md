@@ -19,3 +19,6 @@ brew update && brew upgrade node && npm install -g npm   (updating node)
 
 npm install express-validator
 ! and again removing uuid folder in node_modules !
+
+npm install axios
+! and again removing uuid folder in node_modules ! removed uuid from package.json !
