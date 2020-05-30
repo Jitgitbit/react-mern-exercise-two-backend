@@ -9,3 +9,5 @@ NOTE: Use PostMan ! check screenshot !
 
 npm uninstall uuid                               (------->   also delete manually the uuid folder in node_modules !!!)
 npm install uuidv4
+
+npm install --save express validator
