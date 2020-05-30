@@ -17,7 +17,7 @@ router.get('/:pid', placesControllers.getPlaceById);
                                                        //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
 router.get('/user/:uid', placesControllers.getPlacesByUserId);
 
-router.post('/', check('title').not().isEmpty(), placesControllers.createPlace);
+router.post('/', check('title').not().isEmpty(), placesControllers.createPlace);  //---> english: we check that the 'title' is not empty
 
 router.patch('/:pid', placesControllers.updatePlace);
 
