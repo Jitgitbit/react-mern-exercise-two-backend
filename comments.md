@@ -11,3 +11,5 @@ npm uninstall uuid                               (------->   also delete manuall
 npm install uuidv4
 
 npm install --save express validator
+
+! had to delete the uuid folder a second time !?
