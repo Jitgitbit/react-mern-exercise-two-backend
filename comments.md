@@ -14,3 +14,8 @@ npm install --save express validator
 
 ! had to delete the uuid folder a second time !?
 ! once more had issues with uuid, each time I do an npm install of anything, the uuid folder reappears, deleting is required !
+
+brew update && brew upgrade node && npm install -g npm   (updating node)
+
+npm install express-validator
+! and again removing uuid folder in node_modules !
