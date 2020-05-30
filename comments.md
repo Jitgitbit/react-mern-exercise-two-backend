@@ -13,3 +13,4 @@ npm install uuidv4
 npm install --save express validator
 
 ! had to delete the uuid folder a second time !?
+! once more had issues with uuid, each time I do an npm install of anything, the uuid folder reappears, deleting is required !
