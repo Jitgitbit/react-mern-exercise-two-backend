@@ -28,7 +28,7 @@ app.use((error, req, res, next) => {
 });
 
 mongoose
-  .connect()
+  .connect('mongodb+srv://thierrydk:mySecretPassword@cluster0-qcxiw.mongodb.net/phoenixplaces?retryWrites=true&w=majority')
   .then(() => {
     app.listen(port, () => console.log(`Listening on: ${port}, endpoint /testing is supported!`));  // start Node + Express server on port 5000
   })
