@@ -24,3 +24,5 @@ npm install axios
 ! and again removing uuid folder in node_modules ! removed uuid from package.json !
 
 Google Geocoding API, Maps JavaScript API, and Places API were/are required to be enabled for REST to work here.
+
+npm install --save mongoose
