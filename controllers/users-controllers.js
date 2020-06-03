@@ -80,7 +80,6 @@ const login = async (req, res, next) => {
   const { email, password } = req.body;
 
   let existingUser;
-
   try {
     existingUser = await User.findOne({ email: email })
   } catch (err) {

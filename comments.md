@@ -27,3 +27,5 @@ Google Geocoding API, Maps JavaScript API, and Places API were/are required to b
 
 npm install --save mongoose
 npm install --save mongoose-unique-validator
+
+npm uninstall validator
