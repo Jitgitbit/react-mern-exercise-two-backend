@@ -127,8 +127,8 @@ const createPlace = async (req, res, next) => {
     await createdPlace.save({ session: sess });
     user.places.push(createdPlace);
     await user.save({ session: sess });
-    await sess.commitTransaction();
-  } catch (err) {
+    await sess.commitTransaction();                    //=====>> NEVER FORGET, with Transactions, the collection has to already exist, 
+  } catch (err) {                                     //=====> it's not created on the fly. So prepare and make the collections first !
     const error = new HttpError(
       'Creating place failed, please try again.',
       500
