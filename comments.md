@@ -29,3 +29,5 @@ npm install --save mongoose
 npm install --save mongoose-unique-validator
 
 npm uninstall validator
+
+npm install --save multer
