@@ -16,7 +16,7 @@ const DUMMY_USERS = [
 const getUsers = async (req, res, next) => {
   let users;
   try {
-    users = await User.find({}, '-password');
+    users = await User.find({}, '-password');      //-------> easy security feature !
   } catch (err) {
     const error = new HttpError(
       'Fetching users failed, please try again later.',
@@ -90,7 +90,7 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
-  if (!existingUser || existingUser.password !== password) {
+  if (!existingUser || existingUser.password !== password) {         //-------> simple and complete !
     const error = new HttpError(
       'Invalid credentials, could not log you in.',
       401
