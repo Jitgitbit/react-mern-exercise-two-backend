@@ -31,3 +31,7 @@ npm install --save mongoose-unique-validator
 npm uninstall validator
 
 npm install --save multer
+
+npm install uuid --------- npm uninstall uuid: uuid has a shitload of issues these days !!!
+
+npm install uuidv1
