@@ -26,3 +26,4 @@ npm install axios
 Google Geocoding API, Maps JavaScript API, and Places API were/are required to be enabled for REST to work here.
 
 npm install --save mongoose
+npm install --save mongoose-unique-validator
