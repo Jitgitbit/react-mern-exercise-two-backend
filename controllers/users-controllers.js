@@ -7,7 +7,7 @@ const User = require('../models/user');
 const DUMMY_USERS = [
   {
     id: 'u1',
-    name: 'Max Schwarz',
+    name: 'John Smith',
     email: 'test@test.com',
     password: 'testers'
   }
