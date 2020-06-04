@@ -18,7 +18,7 @@ router.get("/:pid", placesControllers.getPlaceById); //------> DON"T FORGET THAT
 
 router.get("/user/:uid", placesControllers.getPlacesByUserId);
 
-router.use(checkAuth); //-------> Sequence matters ! Below this line, if checkauth failed, you shall not pass ! ROUTE PROTECTION !
+router.use(checkAuth); //-------> Sequence matters ! Below this line, if checkAuth failed, ye shall not pass ! ROUTE PROTECTION !
 
 router.post(
   "/",
