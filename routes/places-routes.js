@@ -2,6 +2,7 @@ const express = require("express");
 const { check } = require("express-validator");
 
 const placesControllers = require("../controllers/places-controllers");
+const fileUpload = require('../middleware/file-upload');
 
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get("/user/:uid", placesControllers.getPlacesByUserId);
 
 router.post(
   "/",
+  fileUpload.single('image'),
   [
     check("title").not().isEmpty(),                 //---> english: we check that the 'title' is not empty
     check("description").isLength({ min: 5 }),
