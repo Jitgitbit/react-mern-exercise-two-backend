@@ -37,3 +37,5 @@ npm install uuid --------- npm uninstall uuid: uuid has a shitload of issues the
 npm install uuidv1
 
 npm install fs-extra
+
+NOTE: Remember to always store files locally. Storing it in the DB would bog it down. The DB is supposed to be as fast as possible !
