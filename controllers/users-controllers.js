@@ -90,7 +90,7 @@ const signup = async (req, res, next) => {
   try{
     token = jwt.sign(
       {userId: createdUser.id, email: createdUser.email},
-      'supersecret_never_share',                                  //===> this is the private key ! use the same one as for login !
+      process.env.JWT_KEY,                                  //===> this is the private key ! use the same one as for login !
       {expiresIn: '1h'}
     );
   }catch(err){
@@ -149,7 +149,7 @@ const login = async (req, res, next) => {
   try{
     token = jwt.sign(
       {userId: existingUser.id, email: existingUser.email},
-      'supersecret_never_share',                          //===> this is the private key ! use the same one as for signup !
+      process.env.JWT_KEY,                          //===> this is the private key ! use the same one as for signup !
       {expiresIn: '1h'}
     );
   }catch(err){
