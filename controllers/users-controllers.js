@@ -16,7 +16,7 @@ const User = require('../models/user');
 const getUsers = async (req, res, next) => {
   let users;
   try {
-    users = await User.find({}, '-password');              //-------> easy security feature !
+    users = await User.find({}, '-password');            //-------> easy security feature !
   } catch (err) {
     const error = new HttpError(
       'Fetching users failed, please try again later.',
@@ -34,6 +34,7 @@ const signup = async (req, res, next) => {
       new HttpError('Invalid inputs passed, please check your data.', 422)
     );
   }
+
   const { name, email, password } = req.body;
 
   let existingUser;
@@ -54,14 +55,15 @@ const signup = async (req, res, next) => {
     );
     return next(error);
   }
-
+  
   const createdUser = new User({
     name,
     email,
-    image: 'https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    // image: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg',
+    // image: 'https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    // // image: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg',
+    image: req.file.path,
     password,
-    places: []
+    places: [],
   });
 
   try {
@@ -92,7 +94,7 @@ const login = async (req, res, next) => {
     return next(error);
   }
 
-  if (!existingUser || existingUser.password !== password) {               //-------> simple and complete !
+  if (!existingUser || existingUser.password !== password) {                  //-------> simple and complete !
     const error = new HttpError(
       'Invalid credentials, could not log you in.',
       401
