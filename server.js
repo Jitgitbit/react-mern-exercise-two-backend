@@ -1,4 +1,5 @@
 const fs = require('fs');                      //----> File System, built in in Node
+const path = require('path');                            //(these two are seperate because they are built-in NodeJs)
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -11,6 +12,8 @@ const HttpError = require('./models/http-error');
 const app = express();
 
 app.use(bodyParser.json());          //------> the sequence of ANY middleWare is of major importance !!! They will be parsed from top to bottom !!!
+
+app.use('/uploads/images', express.static(path.join('uploads', 'images')));         //===> Serving Images Statically !
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
