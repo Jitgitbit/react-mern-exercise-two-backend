@@ -1,5 +1,6 @@
 // const {uuid} = require('uuidv4');
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const HttpError = require('../models/http-error');
 const User = require('../models/user');
@@ -56,13 +57,21 @@ const signup = async (req, res, next) => {
     return next(error);
   }
   
+  let hashedPassword;
+  try{
+    hashedPassword = await bcrypt.hash(password, 12);
+  }catch(err){
+    const error = new HttpError('Could not create user, please try again', 500);
+    return next(error);
+  }
+
   const createdUser = new User({
     name,
     email,
     // image: 'https://images.pexels.com/photos/839011/pexels-photo-839011.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     // // image: 'https://live.staticflickr.com/7631/26849088292_36fc52ee90_b.jpg',
     image: req.file.path,
-    password,
+    password: hashedPassword,
     places: [],
   });
 
