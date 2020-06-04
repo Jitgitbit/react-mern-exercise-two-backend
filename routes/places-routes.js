@@ -3,6 +3,7 @@ const { check } = require("express-validator");
 
 const placesControllers = require("../controllers/places-controllers");
 const fileUpload = require('../middleware/file-upload');
+const checkAuth = require('../middleware/check-auth')
 
 const router = express.Router();
 
@@ -16,6 +17,8 @@ router.get("/testing", (req, res, next) => {
 router.get("/:pid", placesControllers.getPlaceById); //------> DON"T FORGET THAT THE SEQUENCE OF YOUR ROUTES MATTERS !
 
 router.get("/user/:uid", placesControllers.getPlacesByUserId);
+
+router.use(checkAuth); //-------> Sequence matters ! Below this line, if checkauth failed, you shall not pass ! ROUTE PROTECTION !
 
 router.post(
   "/",
