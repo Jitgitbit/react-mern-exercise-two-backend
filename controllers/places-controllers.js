@@ -163,6 +163,14 @@ const updatePlace = async (req, res, next) => {
     return next(error);
   }
 
+  if(place.creator.toString() !== req.userData.userId){        //---> has to be comverted to string because mongoose gives an object !
+    const error = new HttpError(
+      'You are not authorized to edit this place!',
+      401
+    );
+    return next(error);
+  }
+
   place.title = title;
   place.description = description;
 
