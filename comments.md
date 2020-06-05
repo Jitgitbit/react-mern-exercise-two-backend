@@ -49,3 +49,4 @@ heroku git:remote -a phoenix-places
 git add .
 gst
 git commit -am "make it better"
+git push heroku master
