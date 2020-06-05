@@ -14,7 +14,7 @@ async function getCoordsForAddress(address) {
       address
     )}&key=${API_KEY}`
   );
-  console.log(response)
+  // console.log(response.data)
   const data = response.data;
 
   if (!data || data.status === 'ZERO_RESULTS') {
