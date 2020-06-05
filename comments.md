@@ -42,3 +42,10 @@ NOTE: Remember to always store files locally. Storing it in the DB would bog it 
 
 npm install --save bcryptjs
 npm install --save jsonwebtoken
+
+npm upgrade -g heroku
+heroku login
+heroku git:remote -a phoenix-places
+git add .
+gst
+git commit -am "make it better"
