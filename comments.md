@@ -52,4 +52,5 @@ git commit -am "make it better"
 git push heroku master
 
 https://git.heroku.com/phoenix-places.git
-https://phoenix-places.herokuapp.com/
+
+https://phoenix-places.herokuapp.com/         (---> don't forget to add /api/users)
