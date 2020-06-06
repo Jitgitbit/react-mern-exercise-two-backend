@@ -56,3 +56,8 @@ https://git.heroku.com/phoenix-places.git
 https://phoenix-places.herokuapp.com/         (---> don't forget to add /api/users)
 
 NOTE: if you want to update, don't forget to change the start script back to nodemon. For redeploy, change it back to node !!!
+
+NOTE: I added 5 users with 9 places pre deployement. The free version of Heroku server I am using goes to sleep after 30 min of inactivity,
+meaning the fs files (the images) that were added after deployement will always get lost. That is why I added these 5 profiles pre deployement.
+The alternative is either using an AWS3 server for static file storage (which I will do, if enough time available), or paying 7euro/month for a 
+leveled up server on Heroku. At this time, just for demo, I will leave it this way.
