@@ -54,3 +54,5 @@ git push heroku master
 https://git.heroku.com/phoenix-places.git
 
 https://phoenix-places.herokuapp.com/         (---> don't forget to add /api/users)
+
+NOTE: if you want to update, don't forget to change the start script back to nodemon. For redeploy, change it back to node !!!
