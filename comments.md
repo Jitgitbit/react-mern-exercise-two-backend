@@ -61,3 +61,5 @@ NOTE: I added 5 users with 9 places pre deployement. The free version of Heroku 
 meaning the fs files (the images) that were added after deployement will always get lost. That is why I added these 5 profiles pre deployement.
 The alternative is either using an AWS3 server for static file storage (which I will do, if enough time available), or paying 7euro/month for a 
 leveled up server on Heroku. At this time, just for demo, I will leave it this way.
+
+git push heroku master
